@@ -1,14 +1,28 @@
-public static void main(String[] args) {
+public class Main {
+    public static void main(String[] args) {
+        ProjectTeam team = new ProjectTeam("Campus App");
 
-    Employee e1 = new Employee("C1234", "Ivan", "Asddff", 12000);
+        Employee e1 = new Developer("E-101", "Anna", "May", 12000.0, "Java", 4);
+        Employee e2 = new Tester("E-201", "Peter", "Fox", 9800.0, true, 25);
+        Employee e3 = new Developer("E-102", "Charles", "Smith", 11500.0, "Kotlin", 3);
 
-    System.out.println(e1.introduceYourself());
+        team.addEmployee(e1);
+        team.addEmployee(e2);
+        team.addEmployee(e3);
 
-    Employee e2 = new Employee("B3455", "Maria", "XCVB", 12000);
+        team.printProjectTeam();
+        System.out.println("Total team cost: " + team.calculateTotalCost());
 
-    System.out.println(e2.introduceYourself());
-    Employee e3 = new Employee("B3455", "Maria", "XCVB", 12000);
-    Employee d1 = new Developer("B3455", "Maria", "XCVB", 12000, "PITON", 1000);
-    System.out.println( d1.getFirstName());
-    System.out.println( e1.getFirstName());
+        System.out.println(e1.introduceYourself());
+        System.out.println(e2.introduceYourself());
+
+        if (e1 instanceof Developer) {
+            Developer developer = (Developer) e1;
+            developer.printTechnologies();
+        }
+
+        System.out.println(e2.equals(new Tester("E-201", "Other", "Data", 9000.0, false, 10)));
+        System.out.println(e2);
+        new Tester("E-201", "Other", "Data", 9000.0, false, 10).runTestingReport();
+    }
 }

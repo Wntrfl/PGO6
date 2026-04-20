@@ -6,6 +6,7 @@ public class ProjectTeam {
 
     public ProjectTeam(String projectName){
         this.projectName = projectName;
+        employees = new ArrayList<>();
 
     }
 
